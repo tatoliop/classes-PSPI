@@ -4,12 +4,15 @@ services:
 
   webserver:
     image: httpd:2.4
+    container_name: webserver
     ports:
       - 80:80
     volumes:
       - ./web/:/usr/local/apache2/htdocs/
     networks:
       - classes-PSPI
+
 networks:
     classes-PSPI:
+      driver: bridge
 

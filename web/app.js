@@ -6,8 +6,7 @@ function fetchMovies() {
     movieDetails.innerHTML = '';
 
     // Define the API URL
-//    let url = 'http://127.0.0.1:8080/movie/get/';
-    let url = 'http://10.91.170.224:8080/movie/get/';
+    let url = 'http://myapi:8080/movie/get/';
 
     // Call Flask API to fetch movie(s)
     fetch(url)
@@ -55,8 +54,7 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     };
 
     // Call Flask API to add the movie to the database
-    fetch('http://10.91.170.224:8080/movie/put/', {
-    //fetch('http://127.0.0.1:8080/movie/put/', {
+    fetch('http://myapi.224:8080/movie/put/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

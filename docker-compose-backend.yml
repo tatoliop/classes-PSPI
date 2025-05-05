@@ -2,24 +2,31 @@ version: '3.1'
 
 services:
 
-  myflask:
-    image: myjob:v1.0.0
+  myapi:
+    image: myapi:v1.0.0
     build: ./src
+    container_name: myapi
     ports:
       - 8080:8080
     environment:
       MONGODB_HOST: mongo
+    networks:
+      - classes-PSPI
 
   mongo:
     image: mongo:8.0
+    container_name: mongo
     ports:
       - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - classes-PSPI
 
   mongo-express:
     image: mongo-express:1-20-alpine3.19
+    container_name: mongo-express
     ports:
       - 8081:8081
     environment:
@@ -28,3 +35,9 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
       ME_CONFIG_BASICAUTH_USERNAME: example
       ME_CONFIG_BASICAUTH_PASSWORD: example
+    networks:
+      - classes-PSPI
+
+networks:
+    classes-PSPI:
+      driver: bridge
