@@ -26,5 +26,5 @@ The flask app uses the url `localhost:8080/swagger` to provide a swagger UI for 
 
 `docker-compose -f docker-compose-frontend.yml up`
 
-The http server uses the default port (80) to access the web app through the `localhost` url. 
+The http server uses the default port (80) to access the web app through the `localhost` url. The services uses the `nginx` docker image with a reverse proxy for the api requests to the flask container througth the `nginx.conf` file.
 

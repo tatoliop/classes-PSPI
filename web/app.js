@@ -1,4 +1,6 @@
 // Function to fetch movies based on movie ID (or all movies if no ID)
+
+
 function fetchMovies() {
     const movieDetails = document.getElementById('movieDetails');
 
@@ -6,8 +8,7 @@ function fetchMovies() {
     movieDetails.innerHTML = '';
 
     // Define the API URL
-    let url = 'http://myapi:8080/movie/get/';
-
+    let url = '/movie/get';
     // Call Flask API to fetch movie(s)
     fetch(url)
         .then(response => response.json())
@@ -54,7 +55,7 @@ document.getElementById('movieForm').addEventListener('submit', function(event) 
     };
 
     // Call Flask API to add the movie to the database
-    fetch('http://myapi.224:8080/movie/put/', {
+    fetch('/movie/put', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

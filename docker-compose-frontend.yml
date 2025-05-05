@@ -3,12 +3,13 @@ version: '3.1'
 services:
 
   webserver:
-    image: httpd:2.4
+    image: frontend:1.0
+    build: ./web
     container_name: webserver
     ports:
       - 80:80
     volumes:
-      - ./web/:/usr/local/apache2/htdocs/
+      - ./web/:/usr/share/nginx/html
     networks:
       - classes-PSPI
 
